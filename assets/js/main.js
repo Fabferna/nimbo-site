@@ -98,3 +98,46 @@ document.querySelectorAll('[data-brand-carousel]').forEach(scroller => {
     if (e.key === 'ArrowLeft')  scroller.scrollLeft -= 80;
   });
 });
+
+/* Header height variable updater */
+(() => {
+  const header = document.querySelector('.site-header');
+  if(!header) return;
+  const set = () => {
+    const h = header.offsetHeight || 64;
+    document.documentElement.style.setProperty('--header-h', h + 'px');
+  };
+  set();
+  window.addEventListener('load', set);
+  window.addEventListener('resize', set, { passive: true });
+  if ('ResizeObserver' in window){ new ResizeObserver(set).observe(header); }
+})();
+
+
+/* Scrollspy */
+(() => {
+  const nav = document.querySelector('.nav');
+  if(!nav) return;
+  const links = [...nav.querySelectorAll('a[href^="#"]')];
+  const ids = links.map(a => a.getAttribute('href').slice(1));
+  const sections = ids.map(id => document.getElementById(id)).filter(Boolean);
+
+  const activate = (id) => {
+    links.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === '#' + id));
+  };
+
+  const headerH = () => parseInt(getComputedStyle(document.documentElement).getPropertyValue('--header-h')) || 64;
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry => { if(entry.isIntersecting){ activate(entry.target.id); } });
+  }, { root: null, threshold: 0.5, rootMargin: `-${headerH()+8}px 0px -40% 0px` });
+
+  sections.forEach(sec => io.observe(sec));
+
+  window.addEventListener('scroll', () => {
+    const offset = headerH()+8;
+    const pos = window.scrollY + offset + 1;
+    let current = sections[0]?.id;
+    sections.forEach(sec => { if (pos >= sec.offsetTop) current = sec.id; });
+    activate(current);
+  }, { passive: true });
+})();

@@ -117,26 +117,9 @@ p{ color: var(--muted); margin: 0 0 var(--space-4); }
   .hero-art{ min-height: 250px; }
 }
 
-/* --- Hero media responsivo --- */
-.hero-media{
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow-2);
-  background: linear-gradient(135deg, var(--primary), var(--secondary)); /* fallback */
-  position: relative;
-}
-.hero-media img{
-  width: 100%;
-  height: 100%;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 16 / 11;  /* desktop */
-}
-
-/* grade do hero e ratio no mobile */
+/* grade do hero no mobile */
 @media (max-width: 900px){
   .hero-inner{ grid-template-columns: 1fr; } /* empilha: texto em cima, imagem abaixo */
-  .hero-media img{ aspect-ratio: 1 / 1; }    /* quadrado no mobile (fica mais harmônico) */
 }
 
 
@@ -312,4 +295,232 @@ input:focus, textarea:focus{ border-color: var(--secondary); box-shadow: 0 0 0 3
 /* ajuste em telas pequenas */
 @media (max-width: 700px){
   .brand-scroller::before, .brand-scroller::after{ width: 48px; }
+}
+
+/* === Global body gradient continuation === */
+/* Gradiente global que nasce no topo/esquerda (como o hero) e se dissolve ao longo da página */
+body{
+  background:
+    radial-gradient(120% 160% at 0% 0%,
+      color-mix(in srgb, var(--primary) 28%, transparent) 0%,
+      color-mix(in srgb, var(--secondary) 12%, transparent) 45%,
+      rgba(0,0,0,0) 70%
+    ),
+    var(--bg);
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* segue o documento */
+}
+
+/* Se existir gradiente no hero, deixamos transparente para evitar duplicidade */
+.hero{ background: transparent; }
+
+/* Desativa fades locais; agora o efeito é global */
+.section::before,
+.section::after,
+.hero::after{ display:none !important; }
+
+
+
+/* === Global body gradient continuation (full-page) === */
+body{
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(160% 220% at 0% 0%,
+      color-mix(in srgb, var(--primary) 28%, transparent) 0%,
+      color-mix(in srgb, var(--secondary) 16%, transparent) 55%,
+      transparent 80%
+    ),
+    radial-gradient(120% 160% at 100% 20%,
+      color-mix(in srgb, var(--secondary) 10%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(120% 160% at 0% 100%,
+      color-mix(in srgb, var(--primary) 10%, transparent) 0%,
+      transparent 75%
+    );
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed; /* mantém o gradiente visível durante toda a rolagem */
+  background-size: cover, cover, cover;
+  background-position: 0 0, 100% 20%, 0 100%;
+}
+
+/* Hero usa o fundo global */
+.hero{ background: transparent; }
+
+/* Desativar fades locais (o efeito agora é global) */
+.section::before,
+.section::after,
+.hero::after{ display:none !important; }
+
+
+
+/* === Global body gradient continuation (full-page, brighter top → darker bottom) === */
+body{
+  background-color: var(--bg);
+  background-image:
+    /* camada 1: top-to-bottom lighting/darkening */
+    linear-gradient(to bottom,
+      rgba(255,255,255,.06) 0%,
+      rgba(255,255,255,.02) 16%,
+      rgba(0,0,0,0) 38%,
+      rgba(0,0,0,.18) 72%,
+      rgba(0,0,0,.36) 100%
+    ),
+    /* camada 2: glow colorido principal (continuação do hero) */
+    radial-gradient(180% 240% at 0% 0%,
+      color-mix(in srgb, var(--primary) 35%, transparent) 0%,
+      color-mix(in srgb, var(--secondary) 18%, transparent) 40%,
+      transparent 72%
+    ),
+    /* camadas auxiliares nos cantos para equilíbrio */
+    radial-gradient(140% 180% at 100% 20%,
+      color-mix(in srgb, var(--secondary) 16%, transparent) 0%,
+      transparent 70%
+    ),
+    radial-gradient(140% 180% at 0% 100%,
+      color-mix(in srgb, var(--primary) 14%, transparent) 0%,
+      transparent 75%
+    );
+  background-repeat: no-repeat, no-repeat, no-repeat, no-repeat;
+  background-attachment: fixed, fixed, fixed, fixed;
+  background-size: cover, cover, cover, cover;
+  background-position: 0 0, 0 0, 100% 20%, 0 100%;
+}
+
+/* performance em mobile + acessibilidade */
+@media (max-width: 900px), (prefers-reduced-motion: reduce){
+  body{ background-attachment: scroll, scroll, scroll, scroll; }
+}
+
+
+/* === Hero media thin gradient frame === */
+.hero-media{
+  position: relative;
+  display: block; /* comportamento normal dentro do grid */
+  width: 100%; /* ocupa largura disponível no grid cell */
+  box-sizing: border-box;
+  border-radius: var(--radius);
+  overflow: hidden; /* garante corte preciso da imagem */
+  background: transparent;
+  margin: 0 auto; /* centraliza quando houver espaço extra */
+  /* sem sombras externas: foco só na borda fina */
+  box-shadow: none;
+}
+.hero-media img{
+  display: block;
+  width: 100%;
+  max-width: 100%; /* evita overflow horizontal */
+  height: auto; /* mantém proporção natural */
+  object-fit: cover;
+  object-position: center center; /* centraliza a imagem dentro do frame */
+  border-radius: inherit;
+  position: relative; /* stacking context para z-index */
+  z-index: 1;
+}
+/* sem forçar aspect-ratio na imagem; usamos o intrínseco do arquivo */
+/* Thin gradient frame using mask to keep only the border */
+.hero-media::before{
+  content:"";
+  position:absolute; inset:0;
+  padding:1px; /* espessura da moldura fina, igual em todos os lados */
+  border-radius: inherit;
+  background: linear-gradient(135deg,
+    color-mix(in srgb, var(--primary) 16%, transparent),
+    color-mix(in srgb, var(--secondary) 10%, transparent)
+  );
+  /* Mask for compatibility (non-webkit and webkit) */
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: 
+      linear-gradient(#fff 0 0) content-box, 
+      linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events:none;
+  opacity:.55; /* borda muito sutil */
+  z-index: 2;
+}
+/* optional soft glow that echoes the frame */
+.hero-media::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: none;
+  filter: none;
+  opacity: 0; /* sem glow: só a borda visível */
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+/* === Brand carousel vertical tuning === */
+.brand-scroller{ padding: clamp(20px, 3vw, 40px) 0; }
+.brand-item img{
+  height: clamp(46px, 5.2vw, 88px); /* taller belt */
+}
+@media (max-width:700px){
+  .brand-item img{ height: clamp(34px, 9vw, 56px); }
+}
+
+
+/* === Fixed header (always visible) === */
+.site-header{
+  position: fixed; top: 0; left:0; right:0; z-index: 1200;
+  backdrop-filter: saturate(160%) blur(10px);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+:root{ --header-h: 64px; }
+body{ padding-top: var(--header-h); }
+
+
+/* === Scrollspy styles === */
+.nav a{ position: relative; }
+.nav a.is-active{
+  color: var(--secondary);
+  font-weight: 600;
+}
+.nav a.is-active::after{
+  content:""; position:absolute; left:8px; right:8px; bottom:-8px; height:2px;
+  background: linear-gradient(90deg, var(--secondary), color-mix(in srgb, var(--secondary) 0%, transparent));
+  border-radius: 2px;
+}
+
+
+/* === Force fixed gradient on mobile too === */
+@media (max-width: 900px){
+  body{ background-attachment: fixed, fixed, fixed, fixed !important; }
+}
+
+
+/* === Hero media mobile overflow fix (strict) === */
+.hero-media img{ width:100%; height:auto; object-fit: cover; }
+@media (max-width: 700px){
+  .hero{ padding-bottom: var(--space-2); }
+  .hero-inner{ gap: var(--space-3); }
+  .hero-media{ margin-bottom: var(--space-2); aspect-ratio: auto; }
+  .hero-media::after{ inset:-4px; filter: blur(12px); opacity:.30; }
+  .hero-media::before{ padding: 1px; }
+}
+
+
+/* === Hero mobile tight spacing & frame alignment === */
+@media (max-width: 700px){
+  /* reduz qualquer espaço embaixo do hero e alinha cartão no final da dobra */
+  .hero{ margin-bottom: clamp(8px, 2.5vw, 14px); padding-bottom: 0; }
+  .hero-inner{ gap: var(--space-2); }
+  /* garante que a mídia não estoure e fique centrada */
+  .hero-media{ 
+    display: grid; place-items: center;
+    overflow: hidden; /* clip total */
+    margin-bottom: var(--space-2);
+  }
+  .hero-media img{ width: 100%; height: auto; object-fit: cover; }
+  /* moldura e glow menos “baixos”, evitando faixa roxa grande */
+  .hero-media::before{ padding: 1px; }
+  .hero-media::after{ inset: -2px; filter: blur(8px); opacity: .18; }
+}
+/* puxa a seção Clientes um pouco para cima para colar visualmente no hero */
+@media (max-width: 700px){
+  #clientes.section{ margin-top: -6px; }
 }
