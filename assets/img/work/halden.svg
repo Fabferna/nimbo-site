@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <linearGradient id="sand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E9DFCF"/><stop offset="1" stop-color="#D6C6AE"/>
+    </linearGradient>
+    <linearGradient id="shade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#B49A78"/><stop offset="1" stop-color="#8A7154"/>
+    </linearGradient>
+    <linearGradient id="floor" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C9B597"/><stop offset="1" stop-color="#B9A281"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#sand)"/>
+  <rect y="880" width="1600" height="320" fill="url(#floor)"/>
+  <path d="M260 880V420a170 170 0 0 1 340 0v460Z" fill="#F4EEE4"/>
+  <path d="M700 880V300a210 210 0 0 1 420 0v580Z" fill="url(#shade)"/>
+  <path d="M1200 880V520a120 120 0 0 1 240 0v360Z" fill="#F4EEE4" opacity=".7"/>
+  <ellipse cx="910" cy="880" rx="260" ry="26" fill="#6E5940" opacity=".25"/>
+  <g fill="#3B2F22">
+    <rect x="780" y="700" width="260" height="22" rx="4"/>
+    <rect x="800" y="722" width="10" height="158"/><rect x="1010" y="722" width="10" height="158"/>
+    <path d="M835 700c0-120 150-120 150 0Z" fill="#2A2118"/>
+  </g>
+  <g stroke="#3B2F22" stroke-opacity=".12">
+    <path d="M0 880h1600M0 960h1600M0 1060h1600"/>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="22" fill="#5B4A36" letter-spacing="3">
+    <text x="150" y="150">HALDEN — MOBILIÁRIO DE AUTOR</text>
+    <text x="1450" y="150" text-anchor="end">FIG. 02</text>
+  </g>
+  <text x="150" y="1070" font-family="Georgia, 'Times New Roman', serif" font-size="120" fill="#2A2118" letter-spacing="-3">Halden</text>
+</svg>

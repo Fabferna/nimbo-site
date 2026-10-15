@@ -1,212 +1,394 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Nimbo — Agência Criativa</title>
-<meta content="Nimbo: estratégia, design e performance que viram resultado." name="description"/>
-<meta content="Nimbo — Agência Criativa" property="og:title"/>
-<meta content="Estratégia, design e performance que viram resultado." property="og:description"/>
-<meta content="website" property="og:type"/>
-<meta content="assets/img/hero-1.jpg" property="og:image"/>
-<meta content="1920" property="og:image:width"/>
-<meta content="1080" property="og:image:height"/>
-<link href="assets/img/favicon-nimbo.png" rel="icon" type="image/png"/>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Space+Grotesk:wght@600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/css/styles.css" rel="stylesheet"/>
-<meta content="#0B0E14" name="theme-color"/><link href="site.webmanifest" rel="manifest"/><link href="assets/icons/favicon.ico" rel="icon"/><link href="assets/icons/favicon-32.png" rel="icon" sizes="32x32" type="image/png"/><link href="assets/icons/apple-touch-icon.png" rel="apple-touch-icon"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+<title>Nimbo — Estúdio de marca e produto digital</title>
+<meta name="description" content="A Nimbo é um estúdio independente de estratégia, identidade e produto digital em São Paulo. Marcas que pairam acima do ruído.">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#0B0B0A">
+<meta property="og:title" content="Nimbo — Marcas que pairam acima do ruído">
+<meta property="og:description" content="Estúdio independente de estratégia, identidade e produto digital em São Paulo.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="icon" href="assets/svg/nimbo-mark.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="module" src="assets/js/main.js"></script>
 </head>
 <body>
-<a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-<header class="site-header" data-header="">
-<div class="container header-inner">
-<a aria-label="Nimbo — Agência Criativa" class="logo" href="#topo">
-<img alt="Nimbo — Agência Criativa" class="logo-img" src="assets/img/favicon-nimbo.png"/>
-</a>
-<button aria-controls="menu" aria-expanded="false" class="nav-toggle" data-nav-toggle="">
-<span class="sr-only">Abrir/Fechar Menu</span>
-<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
-</button>
-<nav aria-label="Menu principal" class="nav" id="menu">
-<ul>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
-
-
-
-<li><a href="#clientes">Clientes</a></li><li><a href="#cases">Cases</a></li><li><a href="#quem-somos">Quem somos</a></li><li><a href="#contatos">Contatos</a></li></ul>
-</nav>
-</div>
+<!-- ============ HEADER ============ -->
+<header class="hdr" data-hdr>
+  <a class="hdr__logo" href="#topo" aria-label="Nimbo — início">
+    <svg class="mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 24a18 18 0 0 1 36 0Z"/><rect x="6" y="27" width="36" height="4"/><rect x="9.5" y="34" width="29" height="3"/><rect x="15" y="40" width="18" height="2"/></svg>
+    <span>Nimbo</span>
+  </a>
+  <nav class="hdr__nav" aria-label="Principal">
+    <a href="#trabalho">Trabalho</a>
+    <a href="#capacidades">Capacidades</a>
+    <a href="#estudio">Estúdio</a>
+    <a href="#processo">Processo</a>
+  </nav>
+  <a class="hdr__cta" href="#contato">Iniciar projeto<span aria-hidden="true">↗</span></a>
+  <button class="hdr__menu" type="button" aria-haspopup="dialog" aria-controls="menu" data-menu-open>
+    <span>Menu</span><i aria-hidden="true"></i>
+  </button>
 </header>
+
+<!-- Mobile menu: native <dialog> gives focus trap, Escape and inert page for free -->
+<dialog class="sheet" id="menu" aria-label="Menu" data-menu>
+  <div class="sheet__top">
+    <span class="sheet__label">Menu</span>
+    <button class="sheet__close" type="button" data-menu-close>Fechar</button>
+  </div>
+  <nav aria-label="Menu móvel">
+    <ol class="sheet__nav">
+      <li><a href="#trabalho"><span>01</span>Trabalho</a></li>
+      <li><a href="#capacidades"><span>02</span>Capacidades</a></li>
+      <li><a href="#estudio"><span>03</span>Estúdio</a></li>
+      <li><a href="#processo"><span>04</span>Processo</a></li>
+      <li><a href="#contato"><span>05</span>Contato</a></li>
+    </ol>
+  </nav>
+  <div class="sheet__foot">
+    <a href="mailto:ola@nimbo.studio">ola@nimbo.studio</a>
+    <span>São Paulo — BR</span>
+  </div>
+</dialog>
+
 <main id="conteudo">
-<!-- HERO -->
-<section aria-label="Abertura" class="hero" id="topo">
-<div class="container hero-inner">
-<div class="hero-copy">
-<h1 class="display">Estratégia, design e performance que viram <span class="grad">resultado</span>.</h1>
-<p>Somos a <strong>Nimbo</strong>, uma agência enxuta e orientada a dados. Conectamos criatividade a métricas para atrair, engajar e converter.</p>
-<div class="hero-ctas">
-<a class="btn btn-primary" href="#contatos">Fale com a Nimbo</a>
-<a class="btn btn-ghost" href="#cases">Ver cases</a>
-</div>
-</div>
-<div aria-label="Composição gráfica minimalista com gradiente" class="hero-art" role="img">
-<figure class="hero-media">
-<picture>
-<!-- Mobile primeiro -->
-<source media="(max-width: 900px)" srcset="assets/img/hero-1-mobile.jpg"/>
-<!-- Desktop / fallback -->
-<img alt="Composição visual minimalista representando os serviços da Nimbo" decoding="async" fetchpriority="high" height="1080" loading="eager" src="assets/img/hero-1.jpg" width="1920"/>
-</picture>
-</figure>
-</div>
-</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="topo" aria-labelledby="hero-title">
+  <div class="hero__sky" aria-hidden="true" data-sky>
+    <span class="orb orb--a"></span>
+    <span class="orb orb--b"></span>
+    <span class="orb orb--c"></span>
+  </div>
+
+  <div class="hero__inner wrap" data-hero>
+    <p class="hero__eyebrow mono"><span class="dot" aria-hidden="true"></span>Estúdio independente de marca &amp; produto digital</p>
+
+    <h1 class="hero__title" id="hero-title">
+      <span class="line"><span>Marcas que</span></span>
+      <span class="line"><span><em>pairam</em> acima</span></span>
+      <span class="line"><span>do ruído.</span></span>
+    </h1>
+
+    <div class="hero__foot">
+      <p class="hero__lede">Somos a Nimbo — um time pequeno de propósito que une estratégia, design e tecnologia para construir marcas raras e produtos que performam.</p>
+      <div class="hero__ctas">
+        <div class="magnet" data-magnetic>
+          <a class="btn btn--signal" href="#contato"><span>Iniciar um projeto</span></a>
+        </div>
+        <a class="link-arrow" href="#trabalho">Ver trabalho <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+  </div>
+
+  <dl class="hero__meta wrap mono">
+    <div><dt>Base</dt><dd>São Paulo, BR</dd></div>
+    <div><dt>Hora local</dt><dd><time data-clock>--:--</time></dd></div>
+    <div><dt>Agenda</dt><dd><span class="dot" aria-hidden="true"></span>2 vagas — 1º tri 2027</dd></div>
+  </dl>
 </section>
-<!-- CLIENTES -->
-<section aria-label="Nossos clientes" class="brands section" id="clientes">
-<div class="container">
-<header class="section-head">
-<h2>Clientes</h2>
-<p>Marcas que confiam na nossa entrega.</p>
-</header>
-<!-- Carrossel automático de logos -->
-<div aria-label="Carrossel de logos de clientes" class="brand-scroller" data-brand-carousel="" role="region">
-<div class="brand-track" data-brand-track="">
-<a aria-label="Cliente 1" class="brand-item" href="#">
-<img alt="Cliente 1" src="assets/clients/brand-1.svg"/>
-</a>
-<a aria-label="Cliente 2" class="brand-item" href="#">
-<img alt="Cliente 2" src="assets/clients/brand-2.svg"/>
-</a>
-<a aria-label="Cliente 3" class="brand-item" href="#">
-<img alt="Cliente 3" src="assets/clients/brand-3.svg"/>
-</a>
-<a aria-label="Cliente 4" class="brand-item" href="#">
-<img alt="Cliente 4" src="assets/clients/brand-4.svg"/>
-</a>
-<a aria-label="Cliente 5" class="brand-item" href="#">
-<img alt="Cliente 5" src="assets/clients/brand-5.svg"/>
-</a>
-</div>
-</div>
-</div>
+
+<!-- ============ CLIENTES ============ -->
+<section class="clients" aria-labelledby="clients-title">
+  <div class="clients__head wrap">
+    <h2 class="mono" id="clients-title">Confiada por equipes que constroem o novo</h2>
+    <button class="marquee-toggle mono" type="button" aria-pressed="false" data-marquee-toggle>Pausar</button>
+  </div>
+  <div class="marquee" data-marquee>
+    <ul class="marquee__track" data-marquee-track>
+      <li class="wm wm--serif">Ostra</li>
+      <li class="wm wm--grotesk">HALDEN</li>
+      <li class="wm wm--italic">pampa café</li>
+      <li class="wm wm--mono">vértice/saúde</li>
+      <li class="wm wm--grotesk">Lumen Labs</li>
+      <li class="wm wm--serif">Mareh</li>
+      <li class="wm wm--mono">KORA_</li>
+      <li class="wm wm--italic">Aurora</li>
+    </ul>
+  </div>
 </section>
-<!-- SERVIÇOS -->
-<section aria-label="Nossos serviços" class="services section">
-<div class="container">
-<header class="section-head">
-<h2>Serviços</h2>
-<p>Do branding à performance: um time, ponta a ponta.</p>
-</header>
-<div class="service-grid">
-<article class="card reveal">
-<img alt="" aria-hidden="true" class="icon" height="32" src="assets/svg/ic-branding.svg" width="32"/>
-<h3>Branding</h3>
-<p>Posicionamento, naming e guias visuais que marcam presença.</p>
-</article>
-<article class="card reveal">
-<img alt="" aria-hidden="true" class="icon" height="32" src="assets/svg/ic-web.svg" width="32"/>
-<h3>Web</h3>
-<p>Sites rápidos, acessíveis e pensados para conversão.</p>
-</article>
-<article class="card reveal">
-<img alt="" aria-hidden="true" class="icon" height="32" src="assets/svg/ic-ads.svg" width="32"/>
-<h3>Mídia Paga</h3>
-<p>Campanhas orientadas a dados com foco em ROI.</p>
-</article>
-<article class="card reveal">
-<img alt="" aria-hidden="true" class="icon" height="32" src="assets/svg/ic-seo.svg" width="32"/>
-<h3>SEO</h3>
-<p>Autoridade orgânica e conteúdo que performa.</p>
-</article>
-</div>
-</div>
+
+<!-- ============ MANIFESTO ============ -->
+<section class="manifesto paper" aria-labelledby="manifesto-title">
+  <div class="wrap manifesto__grid">
+    <h2 class="label mono" id="manifesto-title"><span>(01)</span> Manifesto</h2>
+    <p class="manifesto__text" data-words>Marcas fortes não gritam. Elas têm clareza, ritmo e uma razão para existir. Unimos estratégia, design e tecnologia em um só time — pequeno de propósito, obsessivo por detalhe e medido pelo que muda no seu negócio.</p>
+    <p class="manifesto__sign"><em>— Nimbo</em>, desde 2017</p>
+  </div>
 </section>
-<!-- CASES -->
-<section aria-label="Nossos cases" class="cases section" id="cases">
-<div class="container">
-<header class="section-head">
-<h2>Cases</h2>
-<p>Projetos com impacto real em negócio.</p>
-</header>
-<div class="carousel" data-carousel="">
-<button aria-label="Anterior" class="carousel-btn prev" data-prev="">
-<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
-</button>
-<div class="carousel-track" data-track="">
-<article class="case card" tabindex="0">
-<img alt="Case 1: Landing Page Performance" loading="lazy" src="assets/img/case-1.jpg"/>
-<h3>Landing Page Performance</h3>
-<p>+38% de conversão em 6 semanas com CRO e otimização de velocidade.</p>
-</article>
-<article class="case card" tabindex="0">
-<img alt="Case 2: Rebranding SaaS" loading="lazy" src="assets/img/case-2.jpg"/>
-<h3>Rebranding SaaS</h3>
-<p>Sistema visual e site novo — aumento de 2.1× no tráfego orgânico.</p>
-</article>
-<article class="case card" tabindex="0">
-<img alt="Case 3: Funil de Mídia Paga" loading="lazy" src="assets/img/case-3.jpg"/>
-<h3>Funil de Mídia Paga</h3>
-<p>CPA -27% e LTV +19% com segmentação e criativos orientados a dados.</p>
-</article>
-</div>
-<button aria-label="Próximo" class="carousel-btn next" data-next="">
-<svg aria-hidden="true" height="24" viewbox="0 0 24 24" width="24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
-</button>
-</div>
-</div>
+
+<!-- ============ CAPACIDADES ============ -->
+<section class="caps" id="capacidades" aria-labelledby="caps-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="label mono" id="caps-title"><span>(02)</span> Capacidades</h2>
+      <p class="section-head__lede" data-reveal>Do primeiro insight ao último pixel, um mesmo time conduz a marca inteira — sem repasses, sem ruído.</p>
+    </div>
+
+    <ol class="caps__list" data-caps>
+      <li class="cap" data-preview="0" data-reveal>
+        <span class="cap__idx mono">01</span>
+        <h3 class="cap__title">Estratégia de marca</h3>
+        <p class="cap__desc">Posicionamento, naming, arquitetura e narrativa — a base que dá direção a cada decisão.</p>
+        <ul class="cap__tags mono"><li>Pesquisa</li><li>Naming</li><li>Narrativa</li></ul>
+      </li>
+      <li class="cap" data-preview="1" data-reveal>
+        <span class="cap__idx mono">02</span>
+        <h3 class="cap__title">Identidade visual</h3>
+        <p class="cap__desc">Sistemas visuais, tipografia, motion e guias vivos que escalam sem perder a alma.</p>
+        <ul class="cap__tags mono"><li>Sistema</li><li>Motion</li><li>Guidelines</li></ul>
+      </li>
+      <li class="cap" data-preview="2" data-reveal>
+        <span class="cap__idx mono">03</span>
+        <h3 class="cap__title">Produto &amp; Web</h3>
+        <p class="cap__desc">Sites, plataformas e design systems rápidos, acessíveis e pensados para converter.</p>
+        <ul class="cap__tags mono"><li>UX/UI</li><li>Front-end</li><li>Design system</li></ul>
+      </li>
+      <li class="cap" data-preview="3" data-reveal>
+        <span class="cap__idx mono">04</span>
+        <h3 class="cap__title">Crescimento</h3>
+        <p class="cap__desc">Mídia, SEO e CRO orientados a dados, com experimentação contínua e metas claras.</p>
+        <ul class="cap__tags mono"><li>Mídia</li><li>SEO</li><li>CRO</li></ul>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Cursor-following preview (desktop, fine pointer only) -->
+  <div class="cap-preview" aria-hidden="true" data-cap-preview>
+    <div class="cap-preview__inner">
+      <span class="cap-preview__layer" style="--a:#FF5A1F;--b:#2A0F06"></span>
+      <span class="cap-preview__layer" style="--a:#E8E2D6;--b:#6E5940"></span>
+      <span class="cap-preview__layer" style="--a:#3A5BFF;--b:#0B1240"></span>
+      <span class="cap-preview__layer" style="--a:#8FB3AF;--b:#0F2E2D"></span>
+    </div>
+  </div>
 </section>
-<!-- QUEM SOMOS -->
-<section aria-label="Quem somos" class="about section" id="quem-somos">
-<div class="container narrow">
-<h2>Quem somos</h2>
-<p>Somos a <strong>Nimbo</strong>, uma agência criativa que une estratégia, design e tecnologia para gerar impacto de negócio. Trabalhamos com processos claros, ciclos curtos e colaboração contínua — da identidade visual à performance, conectando criatividade com métricas.</p>
-</div>
+
+<!-- ============ TRABALHO (pinned horizontal) ============ -->
+<section class="work" id="trabalho" aria-labelledby="work-title" data-work>
+  <div class="work__pin" data-work-pin>
+    <div class="work__track" data-work-track>
+      <div class="work__intro">
+        <h2 class="label mono" id="work-title"><span>(03)</span> Trabalho selecionado</h2>
+        <p class="work__headline">Projetos onde <em>forma</em> e <em>número</em> andam juntos.</p>
+        <p class="work__count mono" aria-hidden="true"><span data-work-index>01</span> / 04</p>
+      </div>
+
+      <article class="case" data-case>
+        <figure class="case__media" data-reveal="clip">
+          <img src="assets/img/work/ostra.svg" width="1600" height="1200" alt="Capa do projeto Ostra: esfera perolada sobre fundo verde-petróleo com anéis concêntricos." loading="lazy" decoding="async">
+        </figure>
+        <div class="case__meta">
+          <p class="mono">Ostra — 2026</p>
+          <h3>Uma fintech que finalmente soa humana</h3>
+          <p class="case__tags mono">Rebranding · Produto · Motion</p>
+          <p class="case__kpi"><strong>+212%</strong> em ativações de conta</p>
+        </div>
+      </article>
+
+      <article class="case" data-case>
+        <figure class="case__media" data-reveal="clip">
+          <img src="assets/img/work/halden.svg" width="1600" height="1200" alt="Capa do projeto Halden: arcos arquitetônicos em tons de areia com uma mesa de autor ao centro." loading="lazy" decoding="async">
+        </figure>
+        <div class="case__meta">
+          <p class="mono">Halden — 2025</p>
+          <h3>Mobiliário de autor, vendido como arte</h3>
+          <p class="case__tags mono">E-commerce · Direção de arte</p>
+          <p class="case__kpi"><strong>+38%</strong> em conversão em 6 semanas</p>
+        </div>
+      </article>
+
+      <article class="case" data-case>
+        <figure class="case__media" data-reveal="clip">
+          <img src="assets/img/work/pampa.svg" width="1600" height="1200" alt="Capa do projeto Pampa Café: sol listrado sobre colinas em terracota." loading="lazy" decoding="async">
+        </figure>
+        <div class="case__meta">
+          <p class="mono">Pampa Café — 2025</p>
+          <h3>Do terroir gaúcho à prateleira</h3>
+          <p class="case__tags mono">Identidade · Embalagem</p>
+          <p class="case__kpi"><strong>3×</strong> sell-out no lançamento</p>
+        </div>
+      </article>
+
+      <article class="case" data-case>
+        <figure class="case__media" data-reveal="clip">
+          <img src="assets/img/work/vertice.svg" width="1600" height="1200" alt="Capa do projeto Vértice Saúde: triângulo azul sobre grade clara com fragmentos de interface." loading="lazy" decoding="async">
+        </figure>
+        <div class="case__meta">
+          <p class="mono">Vértice Saúde — 2024</p>
+          <h3>Telemedicina sem atrito</h3>
+          <p class="case__tags mono">Produto digital · Design system</p>
+          <p class="case__kpi"><strong>NPS 74</strong> no primeiro trimestre</p>
+        </div>
+      </article>
+
+      <div class="work__outro">
+        <p>Seu projeto pode ser o&nbsp;<em>próximo</em>.</p>
+        <a class="link-arrow" href="#contato">Vamos conversar <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+    <div class="work__progress" aria-hidden="true"><span data-work-progress></span></div>
+  </div>
 </section>
-<!-- CONTATOS -->
-<section aria-label="Contatos" class="contact section" id="contatos">
-<div class="container narrow">
-<h2>Vamos conversar?</h2>
-<form class="form" data-form="">
-<div class="grid-2">
-<label>Nome
-                                        <input autocomplete="name" name="nome" required="" type="text"/>
-</label>
-<label>Email
-                                        <input autocomplete="email" name="email" required="" type="email"/>
-</label>
-</div>
-<label>Assunto
-                                    <input name="assunto" required="" type="text"/>
-</label>
-<label>Mensagem
-                                    <textarea name="mensagem" required="" rows="5"></textarea>
-</label>
-<button class="btn btn-primary" type="submit">Enviar</button>
-<p class="form-hint">*Este formulário é um protótipo. Integração com serviço de envio será adicionada.</p>
-</form>
-</div>
+
+<!-- ============ ESTÚDIO ============ -->
+<section class="studio paper" id="estudio" aria-labelledby="studio-title">
+  <div class="wrap">
+    <div class="studio__grid">
+      <h2 class="label mono" id="studio-title"><span>(04)</span> Estúdio</h2>
+      <p class="studio__statement" data-reveal>Pequenos o bastante para <em>cuidar</em> de cada detalhe. Experientes o bastante para <em>mover</em> o ponteiro.</p>
+      <div class="studio__body" data-reveal>
+        <p>A Nimbo nasceu em 2017 com uma tese simples: o melhor trabalho acontece quando quem pensa a estratégia também desenha, escreve e coloca no ar. Somos 14 pessoas — estrategistas, designers, redatores e engenheiros — trabalhando lado a lado com poucos clientes por vez.</p>
+        <p>Sem camadas de atendimento, sem apresentações infladas. Ciclos curtos, decisões claras e uma obsessão saudável por resultado.</p>
+      </div>
+    </div>
+
+    <dl class="stats" data-stats>
+      <div class="stat stat--a" data-reveal><dt>Anos de estúdio</dt><dd><span data-count="9">9</span></dd></div>
+      <div class="stat stat--b" data-reveal><dt>Projetos entregues</dt><dd><span data-count="140">140</span><sup>+</sup></dd></div>
+      <div class="stat stat--c" data-reveal><dt>Clientes que voltam</dt><dd><span data-count="96">96</span><sup>%</sup></dd></div>
+      <div class="stat stat--d" data-reveal><dt>Prêmios de design</dt><dd><span data-count="12">12</span></dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ PROCESSO ============ -->
+<section class="process" id="processo" aria-labelledby="process-title" data-process>
+  <div class="wrap process__grid">
+    <div class="process__aside">
+      <h2 class="label mono" id="process-title"><span>(05)</span> Processo</h2>
+      <p class="process__headline">Ciclos curtos.<br><em>Decisões claras.</em></p>
+    </div>
+    <ol class="process__steps">
+      <li class="process__line" aria-hidden="true"><span data-process-line></span></li>
+      <li class="step" data-reveal>
+        <p class="step__when mono">Semanas 1–2</p>
+        <h3>Imersão</h3>
+        <p>Entrevistas, dados e auditoria de marca. Saímos com um diagnóstico honesto e uma pergunta certa para responder.</p>
+      </li>
+      <li class="step" data-reveal>
+        <p class="step__when mono">Semanas 3–4</p>
+        <h3>Direção</h3>
+        <p>Território estratégico e rotas criativas testadas cedo — com você na sala, não numa apresentação final.</p>
+      </li>
+      <li class="step" data-reveal>
+        <p class="step__when mono">Semanas 5–10</p>
+        <h3>Construção</h3>
+        <p>Sistema visual, produto e conteúdo nascem juntos e são entregues em incrementos que você já pode usar.</p>
+      </li>
+      <li class="step" data-reveal>
+        <p class="step__when mono">Contínuo</p>
+        <h3>Evolução</h3>
+        <p>Medimos, aprendemos e ajustamos. A marca é um organismo vivo — e seguimos ao seu lado.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ CONTATO ============ -->
+<section class="contact" id="contato" aria-labelledby="contact-title">
+  <div class="wrap contact__grid">
+    <div class="contact__intro">
+      <h2 class="label mono"><span>(06)</span> Contato</h2>
+      <p class="contact__title" id="contact-title">Tem uma ideia <em>rara</em>?<br>Vamos conversar.</p>
+      <div class="contact__direct">
+        <a class="contact__email" href="mailto:ola@nimbo.studio">ola@nimbo.studio</a>
+        <button class="copy mono" type="button" data-copy="ola@nimbo.studio">
+          <span class="copy__label" data-copy-label>Copiar</span>
+        </button>
+      </div>
+      <p class="contact__note">Respondemos em até 1 dia útil.</p>
+    </div>
+
+    <form class="form" data-form novalidate aria-describedby="form-note">
+      <div class="field">
+        <input id="f-nome" name="nome" type="text" autocomplete="name" placeholder=" " required>
+        <label for="f-nome">Seu nome</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <p class="field__error" id="e-nome" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" placeholder=" " required>
+        <label for="f-email">E-mail</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <p class="field__error" id="e-email" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <input id="f-empresa" name="empresa" type="text" autocomplete="organization" placeholder=" ">
+        <label for="f-empresa">Empresa <span class="opt">(opcional)</span></label>
+        <span class="field__line" aria-hidden="true"></span>
+      </div>
+
+      <fieldset class="chips">
+        <legend>Investimento estimado</legend>
+        <label><input type="radio" name="orcamento" value="ate-80k"><span>Até R$ 80 mil</span></label>
+        <label><input type="radio" name="orcamento" value="80-200k" checked><span>R$ 80–200 mil</span></label>
+        <label><input type="radio" name="orcamento" value="200k+"><span>R$ 200 mil+</span></label>
+      </fieldset>
+
+      <div class="field">
+        <textarea id="f-msg" name="mensagem" rows="4" placeholder=" " required></textarea>
+        <label for="f-msg">Conte sobre o projeto</label>
+        <span class="field__line" aria-hidden="true"></span>
+        <p class="field__error" id="e-mensagem" aria-live="polite"></p>
+      </div>
+
+      <div class="form__submit">
+        <button class="btn btn--ink" type="submit" data-submit><span data-submit-label>Enviar mensagem</span></button>
+        <p class="form__note" id="form-note">Protótipo: nenhuma mensagem é enviada de verdade.</p>
+      </div>
+      <p class="form__status" role="status" data-form-status></p>
+    </form>
+  </div>
 </section>
 </main>
-<footer class="site-footer">
-<div class="container footer-inner">
-<div class="left">
-<img alt="Nimbo" height="24" src="assets/svg/logo-nimbo.svg" width="96"/>
-<p class="tiny">© <span data-year=""></span> Nimbo — Agência Criativa. Todos os direitos reservados.</p>
-</div>
-<nav aria-label="Links úteis">
-<ul class="footer-links">
-<li><a href="#quem-somos">Quem somos</a></li>
-<li><a href="#clientes">Clientes</a></li>
-<li><a href="#cases">Cases</a></li>
-<li><a href="#contatos">Contatos</a></li>
-<li><a href="brand-kit.html">Brand Kit</a></li>
-</ul>
-</nav>
-</div>
+
+<!-- ============ FOOTER ============ -->
+<footer class="ftr">
+  <div class="wrap ftr__grid">
+    <div>
+      <p class="ftr__h mono">Estúdio</p>
+      <address>Rua Fradique Coutinho, 1200<br>Pinheiros — São Paulo, SP</address>
+    </div>
+    <div>
+      <p class="ftr__h mono">Contato</p>
+      <p><a href="mailto:ola@nimbo.studio">ola@nimbo.studio</a><br><a href="tel:+551130000000">+55 11 3000-0000</a></p>
+    </div>
+    <div>
+      <p class="ftr__h mono">Navegue</p>
+      <ul class="ftr__links">
+        <li><a href="#trabalho">Trabalho</a></li>
+        <li><a href="#capacidades">Capacidades</a></li>
+        <li><a href="brand-kit.html">Brand kit</a></li>
+      </ul>
+    </div>
+    <div class="ftr__top">
+      <a class="link-arrow" href="#topo">Voltar ao topo <span aria-hidden="true">↑</span></a>
+    </div>
+  </div>
+  <div class="ftr__mark" aria-hidden="true" data-ftr-mark><span>nimbo</span></div>
+  <div class="wrap ftr__legal mono">
+    <p>© <span data-year>2026</span> Nimbo Estúdio. Agência fictícia — projeto de portfólio.</p>
+    <p>Feito à mão em São Paulo.</p>
+  </div>
 </footer>
-<script defer="" src="assets/js/main.js"></script>
+
+<div class="progress" aria-hidden="true"><span></span></div>
 </body>
 </html>

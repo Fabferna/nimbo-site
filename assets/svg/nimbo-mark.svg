@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <title>Nimbo</title>
+  <path d="M6 24a18 18 0 0 1 36 0Z" fill="currentColor"/>
+  <rect x="6" y="27" width="36" height="4" fill="currentColor"/>
+  <rect x="9.5" y="34" width="29" height="3" fill="currentColor"/>
+  <rect x="15" y="40" width="18" height="2" fill="currentColor"/>
+</svg>
