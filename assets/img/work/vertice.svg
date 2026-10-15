@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <linearGradient id="v" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3A5BFF"/><stop offset="1" stop-color="#1B2C8F"/>
+    </linearGradient>
+    <linearGradient id="v2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9DB0FF"/><stop offset="1" stop-color="#3A5BFF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="#EEF0F4"/>
+  <g stroke="#1B2C8F" stroke-opacity=".08">
+    <path d="M0 200h1600M0 400h1600M0 600h1600M0 800h1600M0 1000h1600M200 0v1200M400 0v1200M600 0v1200M800 0v1200M1000 0v1200M1200 0v1200M1400 0v1200"/>
+  </g>
+  <path d="M800 180 1240 940H360Z" fill="url(#v)"/>
+  <path d="M800 180 1020 560H580Z" fill="url(#v2)" opacity=".6"/>
+  <g fill="#fff">
+    <rect x="1040" y="300" width="360" height="200" rx="28"/>
+    <rect x="200" y="660" width="320" height="140" rx="28"/>
+  </g>
+  <g fill="#1B2C8F">
+    <circle cx="1100" cy="360" r="22" fill="#3A5BFF"/>
+    <rect x="1140" y="344" width="180" height="12" rx="6" opacity=".8"/>
+    <rect x="1140" y="368" width="120" height="10" rx="5" opacity=".3"/>
+    <path d="M1080 450h40l20-30 30 50 24-34 30 14h96" fill="none" stroke="#3A5BFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="240" y="740" font-family="ui-monospace, Menlo, monospace" font-size="24" letter-spacing="2" opacity=".55">PRÓXIMA CONSULTA</text>
+    <text x="240" y="782" font-family="Georgia, serif" font-size="40">Hoje, 14:30</text>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="22" fill="#1B2C8F" letter-spacing="3">
+    <text x="150" y="150">VÉRTICE SAÚDE — TELEMEDICINA</text>
+    <text x="1450" y="150" text-anchor="end">FIG. 04</text>
+  </g>
+  <text x="150" y="1070" font-family="Georgia, 'Times New Roman', serif" font-size="110" fill="#111A4F" letter-spacing="-3">Vértice</text>
+</svg>

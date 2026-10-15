@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E7542C"/><stop offset=".7" stop-color="#F08A4B"/><stop offset="1" stop-color="#F6B979"/>
+    </linearGradient>
+    <clipPath id="sun"><circle cx="800" cy="640" r="330"/></clipPath>
+  </defs>
+  <rect width="1600" height="1200" fill="#B73A1C"/>
+  <circle cx="800" cy="640" r="330" fill="url(#sky)"/>
+  <g clip-path="url(#sun)" fill="#B73A1C">
+    <rect x="400" y="700" width="800" height="22"/>
+    <rect x="400" y="762" width="800" height="30"/>
+    <rect x="400" y="832" width="800" height="40"/>
+    <rect x="400" y="912" width="800" height="54"/>
+  </g>
+  <path d="M0 980c260-40 520-40 800 0s560 40 800 0v220H0Z" fill="#7D2410"/>
+  <path d="M0 1060c300-30 560-24 820 6s520 26 780-6v140H0Z" fill="#5C1A0B"/>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="22" fill="#FBD9B8" letter-spacing="3">
+    <text x="150" y="150">PAMPA CAFÉ — TORRA ARTESANAL</text>
+    <text x="1450" y="150" text-anchor="end">FIG. 03</text>
+    <text x="1450" y="1070" text-anchor="end">LOTE 07 · 1.200 M</text>
+  </g>
+  <text x="150" y="1070" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="96" fill="#FBE6D2" letter-spacing="-2">pampa</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200">
+  <defs>
+    <radialGradient id="pearl" cx="42%" cy="38%" r="62%">
+      <stop offset="0" stop-color="#FBF7F0"/>
+      <stop offset=".45" stop-color="#D9E4E1"/>
+      <stop offset=".8" stop-color="#8FB3AF"/>
+      <stop offset="1" stop-color="#4E7C78"/>
+    </radialGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#3A8C83" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#0E2A2A" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0F2E2D"/>
+      <stop offset="1" stop-color="#081918"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="1200" fill="url(#bg)"/>
+  <circle cx="800" cy="610" r="560" fill="url(#glow)"/>
+  <g fill="none" stroke="#A9CBC6" stroke-opacity=".18">
+    <circle cx="800" cy="610" r="300"/><circle cx="800" cy="610" r="360"/>
+    <circle cx="800" cy="610" r="430"/><circle cx="800" cy="610" r="510"/>
+    <circle cx="800" cy="610" r="600"/>
+  </g>
+  <circle cx="800" cy="610" r="240" fill="url(#pearl)"/>
+  <ellipse cx="740" cy="530" rx="70" ry="44" fill="#fff" opacity=".55" transform="rotate(-28 740 530)"/>
+  <g font-family="Georgia, 'Times New Roman', serif" fill="#E9F1EF">
+    <text x="150" y="1070" font-size="128" font-style="italic" letter-spacing="-4">ostra</text>
+  </g>
+  <g font-family="ui-monospace, Menlo, monospace" font-size="22" fill="#A9CBC6" letter-spacing="3">
+    <text x="150" y="150">OSTRA — BANCO DIGITAL</text>
+    <text x="1450" y="150" text-anchor="end">FIG. 01</text>
+    <text x="1450" y="1070" text-anchor="end">R$ 0,00 DE TARIFA</text>
+  </g>
+</svg>
